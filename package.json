@@ -1,12 +1,27 @@
 {
   "name": "eslint-path-formatter2",
   "description": "(Actual) ESLint formatter that understand inline source-maps",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "test": "ava"
+    "test": "grunt test"
   },
   "devDependencies": {
-    "ava": "^0.24.0"
+    "grunt": "git://github.com/gruntjs/grunt/#0a4e6e38867cde1c396eb99820436027dccf8023",
+    "grunt-cli": "~0.1",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "jshint-path-reporter": "~0.1.2",
+    "grunt-mocha-test": "~0.7.0",
+    "grunt-run-grunt": "~0.1.1",
+    "eslint": ">=0.1.0-dev",
+    "grunt-eslint": ">=0.1.0",
+    "eslint-grunt": ">=0.0.6",
+    "grunt-shell": "~0.4.0",
+    "chai": "~1.8.0",
+    "source-map": "~0.1.30"
+  },
+  "dependencies": {
+    "source-map": "~0.1.27"
   },
   "repository": "git@github.com:a-x-/eslint-path-formatter2.git",
   "author": "alex <alex@rocketguys.com>",

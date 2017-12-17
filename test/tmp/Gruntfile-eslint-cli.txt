@@ -1,0 +1,12 @@
+Running "shell:eslint" (shell) task
+>> {{full}}invalid-a.js
+ERROR at {{full}}invalid-a.js:1:1
+[no-eval] eval can be harmful.
+
+>> {{full}}invalid-b.js
+ERROR at {{full}}invalid-b.js:1:1
+[no-console] Unexpected console statement.
+
+ESLint found 2 problems in 2 files
+
+Done, without errors.
