@@ -25,6 +25,6 @@
   },
   "repository": "git@github.com:a-x-/eslint-path-formatter2.git",
   "author": "alex <alex@rocketguys.com>",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT"
 }
