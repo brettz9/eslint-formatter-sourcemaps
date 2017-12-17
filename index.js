@@ -186,7 +186,7 @@ module.exports = function (results) {
 
 				str += fail(getMessageType(message).toLocaleUpperCase()) + ' at ';
 				if (true || position.source.slice(0, dataUrlPrefix.length).toLowerCase() === dataUrlPrefix) {
-					str += path.relative('../../../../', position.source.replace(/^.+,/, ''));
+					str += position.source.replace(/^.+,/, '');
 				}
 				else {
 					str += path.resolve(position.source);
