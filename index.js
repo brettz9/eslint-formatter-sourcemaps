@@ -1,3 +1,5 @@
+// compatible with eslint-plugin-coffeescript cache
+
 var fs = require('fs');
 var path = require('path');
 var SourceMapConsumer = require('source-map').SourceMapConsumer;
@@ -50,12 +52,15 @@ function getMessageType(message) {
 // based on https://github.com/evanw/node-source-map-support
 var cache = {};
 function mapSourcePosition(position) {
+	// console.log('mapSourcePosition', position)
+
 	var base64 = false;
 	var dataUrlPrefix = "data:application/json;base64,";
 	var sourceMap = cache[position.source];
 	if (!sourceMap && fs.existsSync(position.source)) {
 		// Get the URL of the source map
-		var fileData = fs.readFileSync(position.source, 'utf8');
+		var fileData = global.eslintPluginCoffeescriptCache.transpiledCode[position.source]
+			|| fs.readFileSync(position.source, 'utf8');
 		var match = /\/\/[#@]\s*sourceMappingURL=(.*)\s*$/m.exec(fileData);
 		if (!match) {
 			return position;
@@ -91,6 +96,7 @@ function mapSourcePosition(position) {
 	// Resolve the source URL relative to the URL of the source map
 	if (sourceMap && sourceMap.map) {
 		var originalPosition = sourceMap.map.originalPositionFor(position);
+		// console.log('orig pos', originalPosition, 'for', position)
 
 		// Only return the original position if a matching line was found. If no
 		// matching line is found then we return position instead, which will cause
@@ -179,8 +185,8 @@ module.exports = function (results) {
 				var position = mapSource({source:file, line:message.line, column: message.column});
 
 				str += fail(getMessageType(message).toLocaleUpperCase()) + ' at ';
-				if (position.source.slice(0, dataUrlPrefix.length).toLowerCase() === dataUrlPrefix) {
-					str += path.relative('../../../../', position.source.split(',')[1]);
+				if (true || position.source.slice(0, dataUrlPrefix.length).toLowerCase() === dataUrlPrefix) {
+					str += path.relative('../../../../', position.source.replace(/^.+,/, ''));
 				}
 				else {
 					str += path.resolve(position.source);
