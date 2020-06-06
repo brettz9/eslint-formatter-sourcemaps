@@ -1,6 +1,12 @@
-# eslint-path-formatter2 [![Build Status](https://travis-ci.org/a-x-/eslint-path-formatter2.svg?branch=master)](https://travis-ci.org/a-x-/eslint-path-formatter2)
+# eslint-formatter-sourcemaps [![Build Status](https://travis-ci.org/brettz9/eslint-formatter-sourcemaps.svg?branch=master)](https://travis-ci.org/brettz9/eslint-formatter-sourcemaps)
 
-(Actual) ESLint formatter that understand inline source-maps
+ESLint formatter that understands inline source-maps and works properly with.
 
-## usage
+Fork of `eslint-path-formatter2` but with a few fixes and ability to use
+without a relative path.
 
+## Usage
+
+```sh
+eslint -f sourcemaps .
+```

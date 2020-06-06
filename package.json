@@ -1,5 +1,5 @@
 {
-  "name": "eslint-path-formatter2",
+  "name": "eslint-formatter-sourcemaps",
   "description": "(Actual) ESLint formatter that understand inline source-maps",
   "main": "index.js",
   "scripts": {
@@ -23,8 +23,21 @@
   "dependencies": {
     "source-map": "~0.1.27"
   },
-  "repository": "git@github.com:a-x-/eslint-path-formatter2.git",
-  "author": "alex <alex@rocketguys.com>",
+  "repository": "https://github.com/brettz9/eslint-formatter-sourcemaps",
+  "homepage": "https://github.com/brettz9/eslint-formatter-sourcemaps",
+  "bugs": "https://github.com/brettz9/eslint-formatter-sourcemaps/issues",
+  "keywords": [
+    "eslint",
+    "eslint-formatter",
+    "eslintformatter"
+  ],
+  "author": "Brett Zamir",
+  "contributors": [
+    "alex <alex@rocketguys.com>"
+  ],
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "version": "0.2.1",
   "license": "MIT"
 }
