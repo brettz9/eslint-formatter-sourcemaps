@@ -78,9 +78,10 @@ function mapSourcePosition(position) {
 			// Support source map URLs relative to the source URL
 			var dir = path.dirname(position.source);
 			sourceMappingURL = path.resolve(dir, sourceMappingURL);
+			var sourceMappingPath = new URL('file://' + sourceMappingURL).pathname;
 
-			if (fs.existsSync(sourceMappingURL)) {
-				sourceMapData = fs.readFileSync(sourceMappingURL, 'utf8');
+			if (fs.existsSync(sourceMappingPath)) {
+				sourceMapData = fs.readFileSync(sourceMappingPath, 'utf8');
 			}
 		}
 		sourceMap = {
