@@ -1,6 +1,6 @@
 {
   "name": "eslint-formatter-sourcemaps",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "(Actual) ESLint formatter that understand inline source-maps",
   "main": "index.js",
   "author": "Brett Zamir",
