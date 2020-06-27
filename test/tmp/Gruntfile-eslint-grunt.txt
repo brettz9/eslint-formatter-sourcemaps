@@ -1,4 +1,0 @@
-Running "eslint:eslint_grunt" (eslint) task
-Warning: Cannot read property 'execute' of undefined Use --force to continue.
-
-Aborted due to warnings.

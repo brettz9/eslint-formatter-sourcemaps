@@ -23,7 +23,7 @@ module.exports = function (grunt) {
 				},
 				options: {
 					execOptions: {
-						cwd: '.'
+						cwd: __dirname
 					},
 					stdout: true
 				}

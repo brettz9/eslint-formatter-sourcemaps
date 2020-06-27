@@ -183,10 +183,11 @@ module.exports = function (results) {
 				return 0;
 			});
 
-			res.messages.forEach(function (message) {
+			res.messages.forEach(function (message, i) {
 				var str = '';
 
 				var position = mapSource({source:file, line:message.line, column: message.column});
+				console.log('position', position, i);
 
 				str += fail(getMessageType(message).toLocaleUpperCase()) + ' at ';
 				if (true || position.source.slice(0, dataUrlPrefix.length).toLowerCase() === dataUrlPrefix) {

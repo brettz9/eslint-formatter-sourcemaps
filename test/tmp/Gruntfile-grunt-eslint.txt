@@ -1,4 +1,23 @@
 Running "eslint:grunt_eslint" (eslint) task
-Warning: No ESLint configuration found. Use --force to continue.
+position {
+  source: '{{full}}invalid-a.js',
+  line: 1,
+  column: 1
+} 0
+position {
+  source: '{{full}}invalid-b.js',
+  line: 1,
+  column: 1
+} 0
+>> {{full}}invalid-a.js
+ERROR at {{full}}invalid-a.js:1:1
+[no-eval] eval can be harmful.
+
+>> {{full}}invalid-b.js
+ERROR at {{full}}invalid-b.js:1:1
+[no-console] Unexpected console statement.
+
+ESLint found 2 problems in 2 files
+Warning: Task "eslint:grunt_eslint" failed. Use --force to continue.
 
 Aborted due to warnings.

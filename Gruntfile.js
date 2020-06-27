@@ -47,7 +47,7 @@ module.exports = function (grunt) {
 						var p = path.resolve('./test/fixtures/basic') + path.sep;
 						//why does .replace() only work once? weird
 						var actual = res.res.stdout.split(p).join('{{full}}');
-						grunt.file.write('./test/tmp/' + path.basename(res.src, path.extname(res.src)) + '.txt', actual);
+						grunt.file.write('./test/tmp/' + path.basename(res.src, path.extname(res.src)) + '.txt', actual + '\n');
 					}
 				},
 				//node cli testing is messed up on windows (pure a node problem that is patched in grunt)

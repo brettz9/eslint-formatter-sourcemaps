@@ -1,14 +1,14 @@
 Running "shell:eslint" (shell) task
->> fixtures/basic/invalid-a.js
-ERROR at {{full}}invalid-a.js(1,0):
+>> {{full}}invalid-a.js
+ERROR at {{full}}invalid-a.js:1:1
 [no-eval] eval can be harmful.
 
->> fixtures/basic/invalid-b.js
-ERROR at {{full}}invalid-b.js(1,0):
-[no-undef] 'console' is not defined.
-ERROR at {{full}}invalid-b.js(1,0):
+>> {{full}}invalid-b.js
+ERROR at {{full}}invalid-b.js:1:1
 [no-console] Unexpected console statement.
 
-ESLint found 3 problems in 2 files
+ESLint found 2 problems in 2 files
+Warning: Command failed: node ../node_modules/eslint/bin/eslint.js -c eslint-test.json -f ../index.js fixtures/basic/invalid-a.js fixtures/basic/invalid-b.js
+ Use --force to continue.
 
-Done, without errors.
+Aborted due to warnings.
