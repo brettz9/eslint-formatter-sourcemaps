@@ -1,5 +1,9 @@
 /*jshint node:true*/
 
+function cloneJSON (obj) {
+	return JSON.parse(JSON.stringify(obj));
+}
+
 
 describe('formatting', function () {
 
@@ -25,19 +29,17 @@ describe('formatting', function () {
 		];
 
 		it('should return a string in the format ERROR at filePath[line,col]\\n[ruleId] message', function () {
-			var config = {
-				rules: { foo: 2 }
-			};
+			var msg = cloneJSON(message);
+			msg[0].messages[0].severity = 2;
 
-			var result = formatter(message, config);
+			var result = formatter(msg);
 			assert.strictEqual('>> foo.js\nERROR at ' + path.resolve('foo.js') + ':5:10\n[foo] Unexpected foo.\n\nESLint found 1 problem in 1 file', result);
 		});
 		it('should return a string in the format WARNING at filePath[line,col]\\n[ruleId] message', function () {
-			var config = {
-				rules: { foo: 1 }
-			};
+			var msg = cloneJSON(message);
+			msg[0].messages[0].severity = 1;
 
-			var result = formatter(message, config);
+			var result = formatter(msg);
 			assert.strictEqual('>> foo.js\nWARNING at ' + path.resolve('foo.js') + ':5:10\n[foo] Unexpected foo.\n\nESLint found 1 problem in 1 file', result);
 		});
 	});
@@ -59,9 +61,7 @@ describe('formatting', function () {
 		];
 
 		it('should return a string in the format ERROR at filePath[line,col]\\n[ruleId] message', function () {
-			var config = {};    // doesn't matter what's in the config for this test
-
-			var result = formatter(message, config);
+			var result = formatter(message);
 			assert.strictEqual('>> foo.js\nERROR at ' + path.resolve('foo.js') + ':5:10\n[foo] Unexpected foo.\n\nESLint found 1 problem in 1 file', result);
 		});
 	});
@@ -93,11 +93,11 @@ describe('formatting', function () {
 		];
 
 		it('should return a string with multiple formatted entries', function () {
-			var config = {
-				rules: { foo: 2, bar: 1 }
-			};
+			var msg = cloneJSON(message);
+			msg[0].messages[0].severity = 2;
+			msg[1].messages[0].severity = 1;
 
-			var result = formatter(message, config);
+			var result = formatter(msg);
 
 			var foo = 'path/to/foo.js';
 			var bar = 'path/for/bar.js';
@@ -135,11 +135,11 @@ describe('formatting', function () {
 		];
 
 		it('should return a string with multiple formatted entries', function () {
-			var config = {
-				rules: { foo: 2, bar: 1 }
-			};
+			var msg = cloneJSON(message);
+			msg[0].messages[0].severity = 2;
+			msg[1].messages[0].severity = 1;
 
-			var result = formatter(message, config);
+			var result = formatter(msg);
 
 			var foo = 'path/to/foo.js';
 			var bar = 'path/for/bar.js';
