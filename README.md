@@ -14,6 +14,6 @@ eslint -f sourcemaps .
 
 ## To-dos
 
-1. Switch from jshint to ESLint
+1. Apply ESLint
 1. Get rid of Grunt and update devDeps
 1. Add `nyc` for coverage testing

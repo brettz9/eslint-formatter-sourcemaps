@@ -23,21 +23,20 @@
   },
   "license": "MIT",
   "dependencies": {
-    "source-map": "~0.1.27"
+    "source-map": "~0.1.43"
   },
   "devDependencies": {
-    "chai": "~1.8.0",
-    "eslint": "^0.2.0",
-    "eslint-grunt": "0.0.7",
-    "grunt": "^0.4.2",
-    "grunt-cli": "~0.1",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-jshint": "~0.6.0",
-    "grunt-eslint": "^0.1.0",
-    "grunt-mocha-test": "~0.7.0",
-    "grunt-run-grunt": "~0.1.1",
-    "grunt-shell": "~0.4.0",
-    "jshint-path-reporter": "~0.1.2",
-    "source-map": "~0.1.30"
+    "chai": "^4.4.1",
+    "eslint": "^8.56.0",
+    "eslint-grunt": "^1.0.0",
+    "grunt": "^1.6.1",
+    "grunt-cli": "~1.4",
+    "grunt-contrib-clean": "~2.0.1",
+    "grunt-eslint": "^24.3.0",
+    "grunt-mocha-test": "~0.13.3",
+    "grunt-run-grunt": "~1.0.1",
+    "grunt-shell": "~4.0.0",
+    "mocha": "^10.2.0",
+    "strip-ansi": "^6.0.0"
   }
 }

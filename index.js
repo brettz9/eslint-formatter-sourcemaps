@@ -28,7 +28,7 @@ var wrapStyle = function (str, color) {
 	}
 	return str;
 };
-/* jshint -W098 */
+
 var warn = function (str) {
 	return wrapStyle(str, 'yellow');
 };
@@ -151,6 +151,7 @@ module.exports = function (results) {
 		if (res.filePath) {
 			file = path.resolve(res.filePath);
 			head = res.filePath;
+			// console.log('11111', file, '::', head);
 		}
 		if (!file) {
 			file = '<unknown file>';
@@ -183,10 +184,11 @@ module.exports = function (results) {
 				return 0;
 			});
 
-			res.messages.forEach(function (message) {
+			res.messages.forEach(function (message, i) {
 				var str = '';
 
 				var position = mapSource({source:file, line:message.line, column: message.column});
+				// console.log('position', position, i);
 
 				str += fail(getMessageType(message).toLocaleUpperCase()) + ' at ';
 				if (true || position.source.slice(0, dataUrlPrefix.length).toLowerCase() === dataUrlPrefix) {

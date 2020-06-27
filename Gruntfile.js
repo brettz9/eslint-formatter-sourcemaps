@@ -2,7 +2,6 @@ module.exports = function (grunt) {
 	'use strict';
 
 	grunt.loadNpmTasks('grunt-mocha-test');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-run-grunt');
 	grunt.loadNpmTasks('eslint-grunt');
@@ -11,21 +10,6 @@ module.exports = function (grunt) {
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-		jshint: {
-			all: {
-				options: {
-					reporter: './node_modules/jshint-path-reporter',
-					jshintrc: '.jshintrc'
-				},
-				src: [
-					'Gruntfile.js',
-					'index.js',
-					'lib/**/*.js',
-					'test/*.js',
-					'test/fixtures*.js'
-				]
-			}
-		},
 		clean: {
 			tmp: ['./tmp/**/*', './test/tmp/**/*']
 		},
@@ -47,7 +31,7 @@ module.exports = function (grunt) {
 						var p = path.resolve('./test/fixtures/basic') + path.sep;
 						//why does .replace() only work once? weird
 						var actual = res.res.stdout.split(p).join('{{full}}');
-						grunt.file.write('./test/tmp/' + path.basename(res.src, path.extname(res.src)) + '.txt', actual);
+						grunt.file.write('./test/tmp/' + path.basename(res.src, path.extname(res.src)) + '.txt', actual + '\n');
 					}
 				},
 				//node cli testing is messed up on windows (pure a node problem that is patched in grunt)
@@ -69,7 +53,7 @@ module.exports = function (grunt) {
 	});
 
 	grunt.registerTask('default', ['test']);
-	grunt.registerTask('build', ['clean', 'jshint:all']);
+	grunt.registerTask('build', ['clean']);
 
 	grunt.registerTask('test', ['build', 'run_grunt:test', 'mochaTest:test']);
 	grunt.registerTask('demo', ['eslint:demo']);

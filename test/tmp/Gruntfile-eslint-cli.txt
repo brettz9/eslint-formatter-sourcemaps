@@ -8,5 +8,7 @@ ERROR at {{full}}invalid-b.js:1:1
 [no-console] Unexpected console statement.
 
 ESLint found 2 problems in 2 files
+Warning: Command failed: node ../node_modules/eslint/bin/eslint.js -c eslint-test.json -f ../index.js fixtures/basic/invalid-a.js fixtures/basic/invalid-b.js
+ Use --force to continue.
 
-Done, without errors.
+Aborted due to warnings.

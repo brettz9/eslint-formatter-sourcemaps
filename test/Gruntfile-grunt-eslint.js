@@ -7,7 +7,7 @@ module.exports = function (grunt) {
 		eslint: {
 			grunt_eslint: {
 				options: {
-					config: 'eslint-test.json',
+					overrideConfigFile: 'eslint-test.json',
 					format: '../index.js'
 				},
 				files: {
