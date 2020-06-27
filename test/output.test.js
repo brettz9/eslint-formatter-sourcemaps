@@ -10,7 +10,7 @@ describe('tool output', function () {
 	var tests = [
 		{
 			 name: 'Gruntfile-eslint-grunt.txt'
-		 },
+		},
 		{
 			name: 'Gruntfile-grunt-eslint.txt'
 		},
