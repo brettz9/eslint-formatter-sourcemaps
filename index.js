@@ -37,9 +37,11 @@ var fail = function (str) {
 var ok = function (str) {
 	return wrapStyle(str, 'green');
 };
+/*
 var accent = function (str) {
 	return wrapStyle(str, 'white');
 };
+*/
 
 function getMessageType(message) {
 	if (message.fatal || message.severity === 2) {
