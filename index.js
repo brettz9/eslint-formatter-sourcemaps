@@ -1,3 +1,4 @@
+/* globals URL */
 // compatible with eslint-plugin-coffeescript cache
 
 var fs = require('fs');
@@ -61,8 +62,8 @@ function mapSourcePosition(position) {
 	var sourceMap = cache[position.source];
 	if (!sourceMap && fs.existsSync(position.source)) {
 		// Get the URL of the source map
-		var fileData = (global.eslintPluginCoffeescriptCache && global.eslintPluginCoffeescriptCache.transpiledCode[position.source])
-			|| fs.readFileSync(position.source, 'utf8');
+		var fileData = (global.eslintPluginCoffeescriptCache && global.eslintPluginCoffeescriptCache.transpiledCode[position.source]) ||
+			fs.readFileSync(position.source, 'utf8');
 		var match = /\/\/[#@]\s*sourceMappingURL=(.*)\s*$/m.exec(fileData);
 		if (!match) {
 			return position;
@@ -198,7 +199,7 @@ module.exports = function (results) {
 					str += ':' + position.line + ':' + position.column;
 				}
 				if (typeof message.ruleId !== 'undefined') {
-					str += '\n' + warn('[' +  message.ruleId + '] ');
+					str += '\n' + warn('[' + message.ruleId + '] ');
 				}
 				else {
 					str += '\n';
